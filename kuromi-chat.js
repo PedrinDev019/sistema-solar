@@ -125,11 +125,11 @@ function normalizeText(text) {
     .replace(/ç/g, 'c');
 }
 
-// Função para obter resposta da Kuromi
+// Função para obter resposta da Kuromi com IA adaptativa
 function getKuromiResponse(userMessage) {
   const normalized = normalizeText(userMessage);
   
-  // Procura por correspondências exatas ou parciais
+  // 1. Procura por correspondências exatas ou parciais no dicionário
   for (const [key, response] of Object.entries(kuromiResponses)) {
     if (key !== 'default') {
       if (normalized.includes(key) || key.includes(normalized)) {
@@ -141,9 +141,160 @@ function getKuromiResponse(userMessage) {
     }
   }
   
-  // Se não encontrar, retorna uma resposta aleatória padrão
-  const defaultResponses = kuromiResponses.default;
-  return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+  // 2. Se não encontrar exato, tenta encontrar QUALQUER palavra relevante
+  const palavrasChave = normalized.split(' ').filter(p => p.length > 2);
+  for (const palavra of palavrasChave) {
+    for (const [key, response] of Object.entries(kuromiResponses)) {
+      if (key !== 'default' && key.includes(palavra) && palavra.length > 2) {
+        if (Array.isArray(response)) {
+          return response[Math.floor(Math.random() * response.length)];
+        }
+        return response;
+      }
+    }
+  }
+  
+  // 3. Se ainda não encontrar, gera resposta INTELIGENTE baseada no contexto
+  return generateSmartResponse(userMessage, normalized);
+}
+
+// Função para gerar resposta inteligente e contextualizada
+function generateSmartResponse(originalMessage, normalized) {
+  const respostasInteligentes = [
+    // Se é uma pergunta
+    () => {
+      if (originalMessage.includes('?')) {
+        const perguntas = [
+          'Que pergunta interessante! Você faz pensar! 💭💕',
+          'Hmm, nunca tinha pensado nisso... mas você é inteligente! 🤔💕',
+          'Ótima observação! Seu cérebro é especial! 🧠✨',
+          'Você sempre faz as melhores perguntas! 💕',
+          'Deixa eu pensar... mas você é incrível! 💭💕',
+          'Que curiosidade! Você é sábia! 💕',
+          'Profunda sua pergunta!💕',
+          'Você me faz pensar quando fala! 🤔💕'
+        ];
+        return perguntas[Math.floor(Math.random() * perguntas.length)];
+      }
+      return null;
+    },
+    
+    // Se fala sobre si mesmo
+    () => {
+      if (normalized.includes('sou ') || originalMessage.includes('eu ')) {
+        const palavraPos = normalized.indexOf('sou ');
+        if (palavraPos !== -1) {
+          const caracteristica = normalized.substring(palavraPos + 4).trim();
+          if (caracteristica.length > 0) {
+            const respostas = [
+              `Que ${caracteristica}! Você é incrível! 💕✨`,
+              `${caracteristica.charAt(0).toUpperCase() + caracteristica.slice(1)}! Adorei saber! 💕`,
+              `Que legal! Ser ${caracteristica} é ser você mesma! 🌟`,
+              `Isso é o que faz você especial! 💕`,
+              `Que maravilhoso! Você é autêntica! 🌹💕`
+            ];
+            return respostas[Math.floor(Math.random() * respostas.length)];
+          }
+        }
+      }
+      return null;
+    },
+    
+    // Se fala sobre gostar de algo
+    () => {
+      if (normalized.includes('gosto ') || normalized.includes('amo ')) {
+        const palavraPos = Math.max(normalized.indexOf('gosto '), normalized.indexOf('amo '));
+        if (palavraPos !== -1) {
+          const interesse = normalized.substring(palavraPos + 6).trim();
+          if (interesse.length > 0) {
+            const respostas = [
+              `${interesse}! Que gosto refinado! 🌟💕`,
+              `Adorei saber que você gosta de ${interesse}! ${interesse.length > 5 ? 'Você tem ótimo gosto!' : 'Criativa você!'}`,
+              `${interesse}! Isso descreve perfeitamente sua alma criativa! 🎨💕`,
+              `Que maravilhoso! Pessoas que gostam de ${interesse} são especiais! 💕`,
+              `${interesse}! Você tem paixão! É lindo! 🔥💕`
+            ];
+            return respostas[Math.floor(Math.random() * respostas.length)];
+          }
+        }
+      }
+      return null;
+    },
+    
+    // Se pede ajuda ou quer conversar
+    () => {
+      if (normalized.includes('me ajuda') || normalized.includes('pode') || normalized.includes('conselho')) {
+        const conselhos = [
+          'Claro! Estou aqui para ti! Conta tudo! 🥺💕',
+          'Sempre! Qual é o desafio? Vamos pensar juntas! 💪💕',
+          'Por você, sim! Me fala mais! 😊💕',
+          'Estou ao teu lado! Vamos resolver! 💕✨',
+          'Sempre posso ajudar! Confio em você! 💪💕'
+        ];
+        return conselhos[Math.floor(Math.random() * conselhos.length)];
+      }
+      return null;
+    },
+    
+    // Se expressa sentimentos negativos
+    () => {
+      if (normalized.includes('ruim') || normalized.includes('mal') || normalized.includes('difícil') || normalized.includes('impossível')) {
+        const apoios = [
+          'Tudo vai passar! Você é mais forte! 💪💕',
+          'Nada é permanente! Você consegue! 💪✨',
+          'Difícil? Você já fez coisas mais difíceis! 💪💕',
+          'Você não está sozinha nisto! Estou aqui! 💕',
+          'Ruim agora, mas você muda isso! 💪💕',
+          'Você tem o poder de mudar! Acredita em mim! 💕✨'
+        ];
+        return apoios[Math.floor(Math.random() * apoios.length)];
+      }
+      return null;
+    },
+    
+    // Se expressa sentimentos positivos
+    () => {
+      if (normalized.includes('bom') || normalized.includes('legal') || normalized.includes('incrível') || normalized.includes('ótimo') || normalized.includes('feliz')) {
+        const felicitacoes = [
+          'Fico tão feliz! Você merecia! 💕✨',
+          'Que bom! Você brilha quando está feliz! 🌟💕',
+          'Isso! Mantenha essa energia! 💪✨',
+          'Você merecia tudo de bom! 💕',
+          'Que momento lindo! Aproveita tudo! 💕🌟'
+        ];
+        return felicitacoes[Math.floor(Math.random() * felicitacoes.length)];
+      }
+      return null;
+    }
+  ];
+  
+  // Tenta cada estratégia na ordem
+  for (const estrategia of respostasInteligentes) {
+    const resposta = estrategia();
+    if (resposta) {
+      return resposta;
+    }
+  }
+  
+  // Se nenhuma estratégia funcionar, respostas genéricas mas ainda inteligentes
+  const ultimas = [
+    'Você sempre diz coisas interessantes! 💭💕',
+    'Que perspectiva criativa! 🎨💕',
+    'Você me surpreende! Em um bom sentido! 💕',
+    'Nunca tinha pensado assim... obrigada! 💕',
+    'Você tem uma forma especial de ver as coisas! 🌟',
+    'Seu jeito de falar me faz feliz! 💕',
+    'Que legal conversar com você! 😊💕',
+    'Você é diferente... especial! 💕✨',
+    'Adorei sua sinceridade! 💕',
+    'Você me fez pensar profundamente! 🧠💕',
+    'Assim que tem que ser! Com autenticidade! 💕',
+    'Você tornou meu dia melhor só conversando! 💕✨',
+    'Qualquer coisa que você pense será incrível! 💕',
+    'Continuaremos conversando? Você me faz bem! 💕'
+  ];
+  
+  return ultimas[Math.floor(Math.random() * ultimas.length)];
 }
 
 // Função para adicionar mensagem ao chat
