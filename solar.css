@@ -436,15 +436,40 @@ body {
     margin-right: auto;
 }
 
-.astronomy-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
+.carousel-wrapper {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.astronomy-carousel {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* Remover scrollbar */
+    scrollbar-width: none;
+}
+
+.astronomy-carousel::-webkit-scrollbar {
+    display: none;
+}
+
 .astronomy-card {
+    flex: 0 0 calc(100% - 20px);
+    max-width: 350px;
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(79, 172, 254, 0.3);
     border-radius: 15px;
@@ -452,6 +477,12 @@ body {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     animation: slideInUp 0.6s ease;
+    scroll-snap-align: start;
+    cursor: grab;
+}
+
+.astronomy-card:active {
+    cursor: grabbing;
 }
 
 .astronomy-card:hover {
@@ -482,7 +513,82 @@ body {
     margin: 0;
 }
 
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(79, 172, 254, 0.3);
+    border: 2px solid rgba(79, 172, 254, 0.6);
+    color: #4facfe;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+    background: rgba(79, 172, 254, 0.6);
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+}
+
+.carousel-btn:active {
+    transform: scale(0.95);
+}
+
+.carousel-indicators {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(79, 172, 254, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.carousel-indicator.active {
+    background: #4facfe;
+    transform: scale(1.3);
+    border-color: #0f8cff;
+}
+
 /* Responsivo astronomia */
+@media (max-width: 1024px) {
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    .astronomy-card {
+        max-width: 300px;
+        padding: 25px;
+    }
+    
+    .card-icon {
+        font-size: 40px;
+    }
+    
+    .astronomy-card h3 {
+        font-size: 18px;
+    }
+    
+    .astronomy-card p {
+        font-size: 13px;
+    }
+}
+
 @media (max-width: 768px) {
     .astronomy-section {
         padding: 40px 15px;
@@ -497,25 +603,32 @@ body {
         margin-bottom: 30px;
     }
     
-    .astronomy-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 15px;
+    .carousel-container {
+        gap: 10px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
     }
     
     .astronomy-card {
+        max-width: 280px;
         padding: 20px;
     }
     
     .card-icon {
-        font-size: 40px;
+        font-size: 36px;
     }
     
     .astronomy-card h3 {
-        font-size: 18px;
+        font-size: 16px;
+        margin: 10px 0 8px 0;
     }
     
     .astronomy-card p {
-        font-size: 13px;
+        font-size: 12px;
     }
 }
 
@@ -533,26 +646,34 @@ body {
         margin-bottom: 20px;
     }
     
-    .astronomy-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
+    .carousel-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
     }
     
     .astronomy-card {
+        max-width: 100%;
         padding: 15px;
     }
     
     .card-icon {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .astronomy-card h3 {
-        font-size: 16px;
-        margin: 10px 0 8px 0;
+        font-size: 14px;
+        margin: 8px 0 6px 0;
     }
     
     .astronomy-card p {
-        font-size: 12px;
+        font-size: 11px;
+        line-height: 1.5;
     }
 }
 
