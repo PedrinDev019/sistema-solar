@@ -5,6 +5,8 @@ const modalTitle = document.getElementById('modal-title');
 const modalBody = document.getElementById('modal-body');
 const closeBtn = document.querySelector('.close');
 
+console.log('Total de planetas encontrados:', planets.length);
+
 // Informacoes dos planetas
 const planetInfo = {
   'Mercúrio': 'O planeta mais próximo do Sol. Tem uma superfície rochosa e é conhecido por suas temperaturas extremas. Sua temperatura pode variar de -173°C a 427°C dependendo do lado exposto ao Sol.',
@@ -17,9 +19,11 @@ const planetInfo = {
   'Netuno': 'O planeta mais distante do Sol. É um gigante de gelo com os ventos mais rápidos do Sistema Solar (2.100 km/h!). Tem uma cor azul profunda.'
 };
 
-planets.forEach(p => {
-  const name = p.dataset.name || p.classList[1];
-  console.log('Planet found:', name);
+planets.forEach((p, index) => {
+  const name = p.dataset.name;
+  console.log(`[${index + 1}] Adicionando listener ao planeta:`, name);
+  
+  p.style.cursor = 'pointer';
   
   p.addEventListener('mouseover', () => {
     label.textContent = name;
@@ -30,13 +34,14 @@ planets.forEach(p => {
   });
   
   p.addEventListener('click', (e) => {
-    console.log('Planet clicked:', name);
+    console.log('🪐 PLANET CLICKED:', name);
     e.stopPropagation();
     showPlanetInfo(name);
   });
 });
 
 function showPlanetInfo(name) {
+  console.log('Abrindo modal para:', name);
   modalTitle.textContent = name;
   const info = planetInfo[name] || 'Informações indisponíveis para este planeta.';
   modalBody.innerHTML = '<p>' + info + '</p>';
@@ -44,11 +49,15 @@ function showPlanetInfo(name) {
 }
 
 closeBtn.addEventListener('click', () => {
+  console.log('Fechando modal');
   modal.classList.remove('active');
 });
 
 modal.addEventListener('click', (e) => {
   if (e.target === modal) {
+    console.log('Clique fora do modal - fechando');
     modal.classList.remove('active');
   }
 });
+
+console.log('✅ Script carregado com sucesso!');
