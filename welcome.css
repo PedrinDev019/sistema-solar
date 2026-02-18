@@ -1,0 +1,147 @@
+/* Página de boas-vindas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+.welcome-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.content {
+    text-align: center;
+    max-width: 500px;
+    animation: fadeIn 1s ease-in;
+}
+
+.kuromi-image {
+    max-width: 100%;
+    width: 300px;
+    height: auto;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+.name {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: slideDown 0.8s ease-out;
+}
+
+.subtitle {
+    font-size: 20px;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.btn-explore {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #fff;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.8s ease-out 0.4s both;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-explore:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    background: #f5f5f5;
+}
+
+.btn-explore:active {
+    transform: translateY(-1px);
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .name {
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+    }
+    
+    .btn-explore {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+    
+    .kuromi-image {
+        width: 220px;
+    }
+}
