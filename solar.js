@@ -19,6 +19,7 @@ const planetInfo = {
 
 planets.forEach(p => {
   const name = p.dataset.name || p.classList[1];
+  console.log('Planet found:', name);
   
   p.addEventListener('mouseover', () => {
     label.textContent = name;
@@ -28,7 +29,9 @@ planets.forEach(p => {
     label.textContent = '';
   });
   
-  p.addEventListener('click', () => {
+  p.addEventListener('click', (e) => {
+    console.log('Planet clicked:', name);
+    e.stopPropagation();
     showPlanetInfo(name);
   });
 });
