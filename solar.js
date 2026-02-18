@@ -66,4 +66,4 @@ modal.addEventListener('click', (e) => {
   }
 });
 
-console.log('✅ Script carregado com sucesso!');
+console.log('✅ Script carregado com sucesso!');\n\n// Log de configuração\nif (typeof SITE_CONFIG !== 'undefined') {\n    console.log('✅ Configuração carregada para:', SITE_CONFIG.nome);\n}

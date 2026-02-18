@@ -1,6 +1,7 @@
-// Configurações de contato
-const WHATSAPP_NUMBER = '19995701318';
-const CONTACT_EMAIL = 'ferrazcarlos676@gmail.com';
+// Configurações de contato (agora vêm de config.js)
+// Se config.js não estiver carregado, usar valores padrão
+const WHATSAPP_NUMBER = typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG.whatsapp : '19995701318';
+const CONTACT_EMAIL = typeof SITE_CONFIG !== 'undefined' ? SITE_CONFIG.email : 'ferrazcarlos676@gmail.com';
 
 // Formulário de Contato
 const contactForm = document.getElementById('contactForm');
