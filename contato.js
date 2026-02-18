@@ -1,5 +1,5 @@
 // Configurações de contato
-const WHATSAPP_NUMBER = '199995701318';
+const WHATSAPP_NUMBER = '19995701318';
 const CONTACT_EMAIL = 'ferrazcarlos676@gmail.com';
 
 // Formulário de Contato
