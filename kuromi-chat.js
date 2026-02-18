@@ -27,7 +27,7 @@ const kuromiResponses = {
   'desculpa': ['Tudo bem! Não precisa! 💕', 'Relaxa! Está tudo bem!', 'Sem problemas! Todos erramos! 😊', 'Não tem de quê! Estamos bem! 💕'],
   'sinto falta': ['Aww! Eu também! Mas agora estamos juntas! 💕', 'Fica feliz! Estou aqui!', 'Que legal! Vamos aproveitar! 😊💕'],
   'estou com raiva': ['Raiva é normal... mas você é melhor! 💕', 'Respira fundo! Você vai perceber que não vale a pena! 😊', 'A raiva passa! Você é madura!', 'Quer conversar sobre o que te fez raiva?'],
-  'acho que sou feia': ['Não! Você é linda! 💕✨', 'Você é belíssima! Intern...',
+  'acho que sou feia': ['Não! Você é linda! 💕✨', 'Você é belíssima! Você é perfeita!', 'Que lindeza! Você é especial! 🌟', 'Você é tão linda! Acredita em mim! 💕'],
   'acho que sou gorda': ['Tamanho não define valor! Você é incrível! 💕', 'Você é perfeita do jeito que é! 💕✨', 'Importante é se amar! E você merecia!', 'Você é linda! Sempre! 💕'],
   'sou burra': ['Não! Você é inteligente! 💕', 'Errado! Você é criativa!', 'Você é esperta! Não duvide! 💕'],
   'ninguém gosta de mim': ['Eu gosto! E mais gente também! 💕', 'Isso é mentira! Você é adorável!', 'Você é especial! 💕✨', 'Não é verdade! Você é incrível! 💕'],
