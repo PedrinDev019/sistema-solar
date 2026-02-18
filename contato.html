@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Fórum de Tarot com Maria Eduarda</title>
+    <link rel="stylesheet" href="contato.css">
+</head>
+<body>
+    <div class="contact-container">
+        <!-- Header -->
+        <header class="contact-header">
+            <a href="welcome.html" class="back-btn">← Voltar</a>
+            <h1>🔮 Fórum de Contato - Maria Eduarda Augusto</h1>
+            <p class="header-subtitle">Espaço para consultas, dúvidas e leituras de tarot</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="contact-main">
+            <!-- Seção de Boas-vindas -->
+            <section class="welcome-section">
+                <div class="welcome-box">
+                    <h2>Bem-vinda ao Espaço de Comunicação</h2>
+                    <p>Aqui você pode entrar em contato para:</p>
+                    <ul class="welcome-list">
+                        <li>✨ Agendar uma leitura de tarot personalizada</li>
+                        <li>💭 Fazer perguntas sobre interpretações</li>
+                        <li>📞 Solicitar consultas e orientações</li>
+                        <li>💕 Compartilhar suas experiências</li>
+                        <li>🌟 Conhecer mais sobre os serviços oferecidos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Formulário de Contato -->
+            <section class="contact-form-section">
+                <h2>Deixe uma Mensagem</h2>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefone (opcional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(XX) XXXXX-XXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Selecione um assunto</option>
+                            <option value="leitura">Agendar Leitura de Tarot</option>
+                            <option value="duvida">Dúvida sobre Interpretação</option>
+                            <option value="consulta">Consulta Especial</option>
+                            <option value="outro">Outro Assunto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required placeholder="Escreva sua mensagem aqui..." rows="6"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Enviar Mensagem 📨</button>
+                </form>
+            </section>
+
+            <!-- Informações de Contato -->
+            <section class="contact-info-section">
+                <h2>Outras Formas de Contato</h2>
+                
+                <div class="contact-info-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <p class="contact-detail">mariaeduarda@tarot.com.br</p>
+                        <a href="mailto:mariaeduarda@tarot.com.br" class="contact-link">Enviar Email</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h3>WhatsApp</h3>
+                        <p class="contact-detail">(XX) 9XXXX-XXXX</p>
+                        <a href="https://wa.me/5511999999999" class="contact-link" target="_blank">Chamar no WhatsApp</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Localização</h3>
+                        <p class="contact-detail">Disponível para consultas online</p>
+                        <a href="#" class="contact-link">Ver Detalhes</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">⏰</div>
+                        <h3>Horário de Atendimento</h3>
+                        <p class="contact-detail">Seg-Sex: 09h às 18h<br>Sábados: 10h às 15h</p>
+                        <a href="#" class="contact-link">Agendar Hora</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testemunhos -->
+            <section class="testimonials-section">
+                <h2>O que Clientes Dizem</h2>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"A leitura de tarot com Maria foi transformadora! Muito precisa e orientadora."</p>
+                        <p class="testimonial-author">— Ana Silva</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Maria tem um dom especial para interpretar as cartas. Recomendo para todos!"</p>
+                        <p class="testimonial-author">— Carlos Santos</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Profissional dedicada, atenciosa e muito competente. Voltaria mil vezes!"</p>
+                        <p class="testimonial-author">— Beatriz Costa</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="contact-footer">
+            <p>&copy; 2026 Maria Eduarda Augusto - Leituras de Tarot | Todos os direitos reservados</p>
+            <p><a href="welcome.html" class="footer-link">← Voltar ao Início</a></p>
+        </footer>
+    </div>
+
+    <script src="contato.js"></script>
+</body>
+</html>

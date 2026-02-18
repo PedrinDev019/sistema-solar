@@ -20,46 +20,15 @@
         <div class="tarot-section">
             <div class="tarot-content">
                 <div class="tarot-icon">🔮</div>
-                <h2>Área Exclusiva<br>de Tarot</h2>
-                <p class="tarot-subtitle">Acesso Restrito a Clientes</p>
+                <h2>Entre em Contato<br>com Maria</h2>
+                <p class="tarot-subtitle">Fale sobre Leituras de Tarot</p>
                 
-                <div class="tarot-form">
-                    <input type="text" placeholder="Nome" class="tarot-input" id="tarotName">
-                    <input type="email" placeholder="Email" class="tarot-input" id="tarotEmail">
-                    <input type="password" placeholder="Senha" class="tarot-input" id="tarotPassword">
-                    <button class="btn-tarot" onclick="acessarTarot()">Acessar Leitura 🌟</button>
-                </div>
-
-                <p class="tarot-info">Não tem acesso?<br><a href="#contact-tarot" class="tarot-link">Solicitar Acesso</a></p>
+                <p class="tarot-description">Tenha acesso a consultas, orientações e muito mais!</p>
+                
+                <a href="contato.html" class="btn-tarot btn-forum">Ir para o Fórum 💬</a>
             </div>
         </div>
     </div>
-    <script>
-        function acessarTarot() {
-            const name = document.getElementById('tarotName').value;
-            const email = document.getElementById('tarotEmail').value;
-            const password = document.getElementById('tarotPassword').value;
-            
-            if (!name || !email || !password) {
-                alert('Por favor, preencha todos os campos!');
-                return;
-            }
-            
-            // Aqui você pode adicionar a lógica real de autenticação
-            // Por enquanto, simularemos um acesso bem-sucedido
-            if (email && password.length > 0) {
-                alert(`Bem-vinda ${name}! 🔮\nAcesso concedido à sua leitura de tarot!`);
-                // Redirecionar para página de tarot (quando existir)
-                // window.location.href = 'tarot.html';
-            }
-        }
 
-        // Enter key para submit
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && (e.target.classList.contains('tarot-input'))) {
-                acessarTarot();
-            }
-        });
-    </script>
 </body>
 </html>

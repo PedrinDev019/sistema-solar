@@ -186,39 +186,23 @@ body {
 .tarot-subtitle {
     font-size: 14px;
     color: #e0d4ff;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 1px;
     opacity: 0.9;
 }
 
-.tarot-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 25px;
+.tarot-description {
+    font-size: 15px;
+    color: #d0c9ff;
+    margin-bottom: 30px;
+    line-height: 1.6;
 }
 
-.tarot-input {
-    padding: 12px 16px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
-}
-
-.tarot-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.tarot-input:focus {
-    outline: none;
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+.btn-forum {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0;
 }
 
 .btn-tarot {
@@ -242,27 +226,6 @@ body {
 
 .btn-tarot:active {
     transform: translateY(0);
-}
-
-.tarot-info {
-    font-size: 13px;
-    color: #d0c9ff;
-    margin: 0;
-    line-height: 1.6;
-}
-
-.tarot-link {
-    color: #ffd700;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    display: inline-block;
-    margin-top: 5px;
-}
-
-.tarot-link:hover {
-    color: #ffed4e;
-    text-decoration: underline;
 }
 
 /* Responsivo */
