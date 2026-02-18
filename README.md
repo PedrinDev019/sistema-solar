@@ -1,4 +1,4 @@
-# 🌟 Sistema Solar - Maria
+# 🌟 Sistema Solar - 
 
 Um site completo e interativo com Sistema Solar, curiosidades de astronomia, chatbot inteligente e área de contato/tarot!
 
