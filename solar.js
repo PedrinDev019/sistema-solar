@@ -7,14 +7,14 @@ const closeBtn = document.querySelector('.close');
 
 // Informacoes dos planetas
 const planetInfo = {
-  'Mercurio': 'O planeta mais proximo do Sol. Tem uma superficie rochosa e eh conhecido por suas temperaturas extremas.',
-  'Venus': 'O planeta mais quente do Sistema Solar com uma atmosfera extremamente densa.',
-  'Terra': 'Nosso planeta! O unico conhecido que abriga vida com agua e oxigenio.',
-  'Marte': 'O Planeta Vermelho. Tem a maior montanha do Sistema Solar (Olympus Mons).',
-  'Jupiter': 'O maior planeta do Sistema Solar. Tem a Grande Mancha Vermelha e pelo menos 79 luas.',
-  'Saturno': 'Famoso por seus aneis espetaculares feitos de gelo e rocha.',
-  'Urano': 'Um gigante de gelo que gira de lado, com uma cor azul-esverdeada.',
-  'Netuno': 'O planeta mais distante do Sol com uma cor azul profunda.'
+  'Mercúrio': 'O planeta mais próximo do Sol. Tem uma superfície rochosa e é conhecido por suas temperaturas extremas. Sua temperatura pode variar de -173°C a 427°C dependendo do lado exposto ao Sol.',
+  'Vênus': 'O planeta mais quente do Sistema Solar com uma atmosfera extremamente densa. Um dia em Vênus dura mais que um ano! É o planeta mais brilhante visível no céu noturno.',
+  'Terra': 'Nosso planeta! O único conhecido que abriga vida com água e oxigênio. Possui uma lua e é o terceiro planeta mais próximo do Sol.',
+  'Marte': 'O Planeta Vermelho devido ao óxido de ferro. Tem a maior montanha do Sistema Solar (Olympus Mons) e foi explorado por vários rovers.',
+  'Júpiter': 'O maior planeta do Sistema Solar, um gigante gasoso. Tem a Grande Mancha Vermelha (uma tempestade que dura séculos) e pelo menos 79 luas.',
+  'Saturno': 'Famoso por seus anéis espetaculares feitos de gelo e rocha. É um gigante gasoso com mais de 80 luas e poderia flutuar na água!',
+  'Urano': 'Um gigante de gelo que gira de lado, provavelmente devido a uma colisão antiga. Tem uma cor azul-esverdeada e emite mais calor que recebe do Sol.',
+  'Netuno': 'O planeta mais distante do Sol. É um gigante de gelo com os ventos mais rápidos do Sistema Solar (2.100 km/h!). Tem uma cor azul profunda.'
 };
 
 planets.forEach(p => {
@@ -35,7 +35,8 @@ planets.forEach(p => {
 
 function showPlanetInfo(name) {
   modalTitle.textContent = name;
-  modalBody.innerHTML = '<p>' + (planetInfo[name] || 'Informacoes indisponiveis.') + '</p>';
+  const info = planetInfo[name] || 'Informações indisponíveis para este planeta.';
+  modalBody.innerHTML = '<p>' + info + '</p>';
   modal.classList.add('active');
 }
 
