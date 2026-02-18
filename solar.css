@@ -408,6 +408,154 @@ body {
     }
 }
 
+/* Seção de Astronomia */
+.astronomy-section {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.astronomy-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #0f8cff 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.astronomy-intro {
+    font-size: 18px;
+    color: #b0b0ff;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.astronomy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.astronomy-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(79, 172, 254, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    animation: slideInUp 0.6s ease;
+}
+
+.astronomy-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(79, 172, 254, 0.8);
+    background: rgba(79, 172, 254, 0.1);
+    box-shadow: 0 15px 40px rgba(79, 172, 254, 0.2);
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.astronomy-card h3 {
+    font-size: 22px;
+    margin: 15px 0 10px 0;
+    color: #4facfe;
+    font-weight: bold;
+}
+
+.astronomy-card p {
+    font-size: 14px;
+    color: #d0d0ff;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Responsivo astronomia */
+@media (max-width: 768px) {
+    .astronomy-section {
+        padding: 40px 15px;
+    }
+    
+    .astronomy-section h2 {
+        font-size: 28px;
+    }
+    
+    .astronomy-intro {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+    
+    .astronomy-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 15px;
+    }
+    
+    .astronomy-card {
+        padding: 20px;
+    }
+    
+    .card-icon {
+        font-size: 40px;
+    }
+    
+    .astronomy-card h3 {
+        font-size: 18px;
+    }
+    
+    .astronomy-card p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .astronomy-section {
+        padding: 30px 10px;
+    }
+    
+    .astronomy-section h2 {
+        font-size: 22px;
+    }
+    
+    .astronomy-intro {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .astronomy-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .astronomy-card {
+        padding: 15px;
+    }
+    
+    .card-icon {
+        font-size: 36px;
+    }
+    
+    .astronomy-card h3 {
+        font-size: 16px;
+        margin: 10px 0 8px 0;
+    }
+    
+    .astronomy-card p {
+        font-size: 12px;
+    }
+}
+
 /* Seção de chat com Kuromi */
 .kuromi-chat-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
