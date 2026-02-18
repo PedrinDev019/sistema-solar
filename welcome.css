@@ -17,17 +17,30 @@ body {
 
 .welcome-container {
     width: 100%;
-    height: 100vh;
-    display: flex;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     align-items: center;
-    justify-content: center;
-    padding: 20px;
+    justify-items: center;
+    padding: 40px 20px;
 }
 
 .content {
     text-align: center;
     max-width: 500px;
     animation: fadeIn 1s ease-in;
+}
+
+.universe-section {
+    justify-self: end;
+}
+
+.tarot-section {
+    justify-self: start;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
 }
 
 .kuromi-image {
@@ -125,8 +138,158 @@ body {
     }
 }
 
+/* Seção de Tarot */
+.tarot-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInRight 1s ease-out 0.2s both;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.tarot-content {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 100%;
+}
+
+.tarot-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.tarot-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+.tarot-subtitle {
+    font-size: 14px;
+    color: #e0d4ff;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.tarot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.tarot-input {
+    padding: 12px 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.tarot-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.tarot-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-tarot {
+    padding: 14px 25px;
+    background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+    color: #667eea;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-tarot:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #f5f5f5 0%, #fff 100%);
+}
+
+.btn-tarot:active {
+    transform: translateY(0);
+}
+
+.tarot-info {
+    font-size: 13px;
+    color: #d0c9ff;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tarot-link {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.tarot-link:hover {
+    color: #ffed4e;
+    text-decoration: underline;
+}
+
 /* Responsivo */
+@media (max-width: 1024px) {
+    .welcome-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .universe-section {
+        justify-self: center;
+    }
+    
+    .tarot-section {
+        justify-self: center;
+        max-width: 450px;
+    }
+}
+
+
 @media (max-width: 600px) {
+    .welcome-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+    
     .name {
         font-size: 32px;
         letter-spacing: 1px;
@@ -143,5 +306,27 @@ body {
     
     .kuromi-image {
         width: 220px;
+    }
+    
+    .tarot-content {
+        padding: 30px 20px;
+    }
+    
+    .tarot-content h2 {
+        font-size: 24px;
+    }
+    
+    .tarot-icon {
+        font-size: 50px;
+    }
+    
+    .tarot-input,
+    .btn-tarot {
+        font-size: 14px;
+        padding: 11px 14px;
+    }
+    
+    .tarot-info {
+        font-size: 12px;
     }
 }
