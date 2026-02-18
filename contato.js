@@ -105,7 +105,7 @@ ${data.message}
 Data/Hora: ${data.timestamp}
 
 ---
-Este é um contato automático do formulário de contato de Maria Eduarda Augusto.
+Este é um contato automático do formulário de contato de Maria.
     `.trim();
     
     const encodedBody = encodeURIComponent(emailBody);
