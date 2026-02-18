@@ -42,10 +42,16 @@ planets.forEach((p, index) => {
 
 function showPlanetInfo(name) {
   console.log('Abrindo modal para:', name);
+  console.log('Modal element:', modal);
+  console.log('Modal classes antes:', modal.className);
+  
   modalTitle.textContent = name;
   const info = planetInfo[name] || 'Informações indisponíveis para este planeta.';
   modalBody.innerHTML = '<p>' + info + '</p>';
+  
   modal.classList.add('active');
+  console.log('Modal classes depois:', modal.className);
+  console.log('✅ Modal ativado com sucesso para:', name);
 }
 
 closeBtn.addEventListener('click', () => {
